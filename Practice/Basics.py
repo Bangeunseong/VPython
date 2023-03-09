@@ -1,3 +1,3 @@
 from vpython import *
 
-ball = sphere()
+ball = sphere(pos = vec(0,0,0))
