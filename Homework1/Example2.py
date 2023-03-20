@@ -1,4 +1,4 @@
 from vpython import *
 
-#Practice Number 1
-s = sphere(radius = 3, color = color.green)
+#Practice Number 2
+VirtualBox = box(size = vec(1,2,3), texture = textures.stones)
