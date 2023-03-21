@@ -35,8 +35,8 @@ r_tan = tan(radian) #Get tan calue
 radian = abs(radian) #Get Absolute value
 radian = sqrt(radian)#Get Square root value
 radian = exp(radian) #Get exponent value
-radian = log(radian)
-radian = pow(radian,10)
+radian = log(radian) #Get log value
+radian = pow(radian,10) #Get exponent value
 radian = pi
 
 ab_dot = dot(a,b) #Get a dot b
