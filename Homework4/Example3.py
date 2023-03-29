@@ -14,6 +14,7 @@ t = 0
 dt = 0.001
 
 elevator = box(pos = vec(0,0,0), size = vec(2,4,2), color = color.red)
+ground = box(pos = vec(0,-2.05,0), size = vec(4,0.1,4), color = color.white)
 
 elevator.a = vec(0,2,0)
 elevator.v = vec(0,0,0)
