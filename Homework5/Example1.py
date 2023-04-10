@@ -13,7 +13,7 @@ r_arrow = arrow(axis = r, color = color.green, shaftwidth = 0.1)
 v_arrow = arrow(axis = v, color = color.blue, shaftwidth = 0.02)
 a_arrow = arrow(axis = a, color = color.red, shaftwidth = 0.02)
 
-while t < 10:
+while t < 5:
     rate(1/dt)
     r_arrow.axis.x = R*cos(w*t)
     r_arrow.axis.y = R*sin(w*t)
@@ -22,3 +22,4 @@ while t < 10:
     a_arrow.axis.x = (-R)*(w**2)*cos(w*t)
     a_arrow.axis.y = (-R)*(w**2)*sin(w*t)
     t += dt
+print("theta :", degrees(acos(dot(v,a)/(mag(a)*mag(v)))))
