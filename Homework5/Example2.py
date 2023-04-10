@@ -1,12 +1,12 @@
 from vpython import *
 
 ball = sphere(radius = 0.2)
+ball.v = vec(0,0,0)
+ball.a = vec(0,-0.35,0)
 ground = box(pos = vec(0,0,0), size = vec(15,-0.01,5)) 
 
-radian = radians(30)
-ball.pos = vec(-2,0,0)
-ball.v = vec(cos(radian),sin(radian), 0)*2
-ball.a = vec(0,-0.35,0)
+degree = [30,35,40,45,50,55,60]
+distance = []
 
 t = 0 
 dt = 0.01
@@ -16,20 +16,16 @@ attach_arrow(ball, "a", shaftwidth = 0.05, color = color.red)
 
 attach_trail(ball, type = 'points', pps = 5)
 
+for deg in degree:
+    ball.pos = vec(-2,0,0)
+    ball.v = vec(cos(radians(deg)),sin(radians(deg)), 0)*2
+    while ball.pos.y >= ground.pos.y:
+        rate(1/dt)
 
-motion_graph = graph(title = 'position-time', xtitle = 't', ytitle = 'y')
-g_bally = gcurve()
-motion_graph2 = graph(title = 'velocity-time', xtitle = 't', ytitle = 'vy') 
-g_ballvy = gcurve(color = color.green)
+        ball.v = ball.v + ball.a*dt 
+        ball.pos = ball.pos + ball.v*dt 
 
-while ball.pos.y >= ground.pos.y:
-    rate(1/dt)
-
-    ball.v = ball.v + ball.a*dt 
-    ball.pos = ball.pos + ball.v*dt 
-
-    g_bally.plot(pos = (t,ball.pos.y)) 
-    g_ballvy.plot(pos = (t,ball.v.y)) 
-
-    t += dt
-print(ball.pos)
+        t += dt
+    distance.append(ball.pos.x + 2)
+print("degree |", degree)
+print("distance |", distance)

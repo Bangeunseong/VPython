@@ -18,7 +18,7 @@ motion_graph = graph(title = 'position-time', xtitle = 't', ytitle = 'y')
 g_bally = gcurve()
 
 
-while t < 10:
+while t < 8:
     rate(1/dt)
     s.pos += s.v*dt
     s.v += s.a*dt
