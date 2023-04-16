@@ -29,7 +29,7 @@ dt = 0.001
 planet = sphere(pos = vec(0, 0, 0,), radius = planet_radius, mass = planet_mass, v = vec(0, 0, 0), color = color.white)
 prince = sphere(pos = vec(0, planet.radius + 1, 0), radius = 0.1, mass = 1, v = vec(sqrt(-G_Head*(planet_radius + 1)), 0, 0) , color = color.white)
 
-
+print("Velocity:", sqrt(-G_Head*(planet_radius + 1)), "m/s^2")
 
 while True:
     rate(1/dt)
