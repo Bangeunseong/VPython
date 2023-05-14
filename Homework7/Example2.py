@@ -16,7 +16,7 @@ t = 0
 dt = 0.01
 
 motion_graph = graph(title = "Velocity-Time", xtitle = "t", ytitle = "v")
-raindrop_v = gcurve()
+raindrop_v = gcurve(graph = motion_graph)
 
 while mag(raindrop.pos) > raindrop.radius:
     rate(1/dt)
