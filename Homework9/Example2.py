@@ -27,4 +27,5 @@ while rock.pos.y >= -2.5 + 0.05:
     rock.v += rock.F/rock.m*dt
     rock.pos += rock.v*dt
     t += dt
+print("X_Difference :", rock.pos.x)
 print("Time :", t)
