@@ -1,12 +1,12 @@
 from vpython import *
 
 ceiling = box(pos = vec(0,0,0), size = vec(0.2,0.01,0.2))
-ball1 = sphere(pos = vec(0,-0.25,0), radius = 0.025, v = vec(0,0,0), m = 1, kv = 0.5, color = color.orange, make_trail = True)
-ball2 = sphere(pos = vec(0,-0.25,0), radius = 0.025, v = vec(0,0,0), m = 1, kv = 1, color = color.orange, make_trail = True)
-ball3 = sphere(pos = vec(0,-0.25,0), radius = 0.025, v = vec(0,0,0), m = 1, kv = 2, color = color.orange, make_trail = True)
-spring1 = helix(pos = ceiling.pos, axis = ball1.pos - ceiling.pos, color = color.cyan, thickness = 0.003, coils = 40, radius = 0.015)
+ball1 = sphere(pos = vec(-0.05,-0.25,0), radius = 0.025, v = vec(0,0,0), m = 1, kv = 0.5, color = color.red, make_trail = True)
+ball2 = sphere(pos = vec(0,-0.25,0), radius = 0.025, v = vec(0,0,0), m = 1, kv = 1, color = color.green, make_trail = True)
+ball3 = sphere(pos = vec(0.05,-0.25,0), radius = 0.025, v = vec(0,0,0), m = 1, kv = 2, color = color.blue, make_trail = True)
+spring1 = helix(pos = ceiling.pos - vec(0.05,0,0), axis = ball1.pos - ceiling.pos + vec(0.05,0,0), color = color.cyan, thickness = 0.003, coils = 40, radius = 0.015)
 spring2 = helix(pos = ceiling.pos, axis = ball2.pos - ceiling.pos, color = color.cyan, thickness = 0.003, coils = 40, radius = 0.015)
-spring3 = helix(pos = ceiling.pos, axis = ball3.pos - ceiling.pos, color = color.cyan, thickness = 0.003, coils = 40, radius = 0.015)
+spring3 = helix(pos = ceiling.pos + vec(0.05,0,0), axis = ball3.pos - ceiling.pos - vec(0.05,0,0), color = color.cyan, thickness = 0.003, coils = 40, radius = 0.015)
 
 g = vec(0,-9.8,0)
 r0 = 0.25
@@ -26,17 +26,17 @@ while t < 10:
     rate(1/dt)
 
     Fgrav = ball1.m*g
-    r1 = mag(ball1.pos)
+    r1 = mag(ball1.pos + vec(0.05,0,0))
     r2 = mag(ball2.pos)
-    r3 = mag(ball3.pos)
+    r3 = mag(ball3.pos - vec(0.05,0,0))
 
     s1 = r1 - r0
     s2 = r2 - r0
     s3 = r3 - r0
 
-    rhat1 = norm(ball1.pos)
+    rhat1 = norm(ball1.pos + vec(0.05,0,0))
     rhat2 = norm(ball2.pos)
-    rhat3 = norm(ball3.pos)
+    rhat3 = norm(ball3.pos - vec(0.05,0,0))
 
     Fspr1 = -ks*s1*rhat1
     Fspr2 = -ks*s2*rhat2
@@ -60,9 +60,9 @@ while t < 10:
 
     t += dt
 
-    spring1.axis = ball1.pos
+    spring1.axis = ball1.pos + vec(0.05,0,0)
     spring2.axis = ball2.pos
-    spring3.axis = ball3.pos
+    spring3.axis = ball3.pos - vec(0.05,0,0)
 
     traj1.plot(pos = (t,ball1.pos.y))
     traj2.plot(pos = (t,ball2.pos.y))
