@@ -1,5 +1,3 @@
-from turtle import pos
-from numpy import true_divide
 from vpython import *
 
 ceiling = box(pos = vec(0,0,0), size = vec(0.4,0.01,0.4))
