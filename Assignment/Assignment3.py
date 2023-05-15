@@ -19,7 +19,7 @@ scene.center = vec(0,-r0,0)
 
 traj = gcurve(color = color.red)
 
-while True:
+while t < 5:
     rate(1/dt)
 
     r = mag(plate.pos)
