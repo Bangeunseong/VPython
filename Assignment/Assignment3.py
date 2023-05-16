@@ -30,7 +30,7 @@ while t < 5:
     Fspr = -ks*s*rhat
     Fdamp = -plate.kv*dot(plate.v,rhat)*rhat
 
-    Fnet = Fgrav + 4*Fspr + Fdamp
+    Fnet = Fgrav + 4*(Fspr + Fdamp)
 
     plate.v += Fnet/plate.m*dt
     plate.pos += plate.v*dt
