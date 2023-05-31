@@ -19,7 +19,7 @@ ku_graph = gcurve(color = color.black)
 t = 0
 dt = 3600
 
-while t < 10*365*24*69*60:
+while t < 10*365*24*60*60:
     rate(100)
     r = Moon.pos - Earth.pos
     
