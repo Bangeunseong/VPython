@@ -37,7 +37,7 @@ handle = cylinder(pos = spring.pos + center_piller.axis - vec(0.7,0,0), axis = v
 busted = label(pos = scene.center, text="<b>Busted!</b>", box = False, visible = False, height = 30, color = color.red)
 
 t = 0
-dt = 0.001
+dt = 0.01
 r0 = 1
 kd = 30
 g = vec(0,-9.8,0)
@@ -70,5 +70,5 @@ while True:
     center_piller.pos = spring.pos
     handle.pos = spring.pos + center_piller.axis - vec(0.7,0,0)
     scene.center = spring.pos
+    busted.pos = spring.pos
     t += dt
-
